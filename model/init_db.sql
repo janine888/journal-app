@@ -3,6 +3,7 @@
 --
 
 SET foreign_key_checks = 0;
+DROP TABLE if exists users;
 DROP TABLE if exists entries;
 SET foreign_key_checks = 1;
 
@@ -10,12 +11,35 @@ SET foreign_key_checks = 1;
 -- Create Tables
 --
 
-CREATE TABLE entries(
-    id INT NOT NULL AUTO_INCREMENT, 
-    firstname VARCHAR(40) not null, 
-    lastname VARCHAR(40) not null, 
-    PRIMARY KEY (id)
-    );
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) UNIQUE NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(60) NOT NULL
+);
 
-INSERT INTO students (firstname, lastname)
-    VALUES ("Hermione", "Granger"), ("Draco", "Malfoy");
+CREATE TABLE entries (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  content TEXT,
+  mood INT,
+  created_at DATE
+);
+
+--
+-- Add Foreign Key Constraint
+--
+
+ALTER TABLE entries
+ADD CONSTRAINT entries_user_id_foreign
+FOREIGN KEY (user_id) REFERENCES users(id);
+
+--
+-- Sample User Insertion
+--
+
+INSERT INTO users (username, email, password)
+VALUES ('chari', 'chari.schaefer@gmail.com', '1234');
+
+INSERT INTO entries (user_id, content, mood, created_at)
+VALUES (1, 'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.', 3, '2023-08-29');
