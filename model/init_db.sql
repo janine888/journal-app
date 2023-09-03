@@ -21,6 +21,7 @@ CREATE TABLE users (
 CREATE TABLE entries (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
+  question TEXT,
   content TEXT,
   mood INT,
   created_at DATE
@@ -41,5 +42,5 @@ FOREIGN KEY (user_id) REFERENCES users(id);
 INSERT INTO users (username, email, password)
 VALUES ('chari', 'chari.schaefer@gmail.com', '1234');
 
-INSERT INTO entries (user_id, content, mood, created_at)
-VALUES (1, 'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.', 3, '2023-08-29');
+INSERT INTO entries (user_id, question, content, mood, created_at)
+VALUES (1,'What did you work on today?', 'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.', 3, '2023-08-29');

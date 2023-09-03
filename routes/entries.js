@@ -35,10 +35,10 @@ router.get("/entries/:id", async (req, res) => {
 
 // POST new entry
 router.post("/entries", async (req, res) => {
-  let { user_id, content, mood, created_at } = req.body;
+  let { user_id, question, content, mood, created_at } = req.body;
   let sql = `
-    INSERT INTO entries (user_id, content, mood, created_at)
-    VALUES (${user_id}, "${content}", ${mood}, "${created_at}")
+    INSERT INTO entries (user_id, question, content, mood, created_at)
+    VALUES (${user_id}, "${question}", "${content}", ${mood}, "${created_at}")
   `;
 
   try {
@@ -57,10 +57,10 @@ router.put("/entries/:id", async (req, res) => {
   try {
     let result = await db(`SELECT * FROM entries WHERE id = ${entryId}`);
     if (result.data.length === 1) {
-      let { user_id, content, mood, created_at } = req.body;
+      let { user_id, question, content, mood, created_at } = req.body;
       let sql = `
         UPDATE entries
-        SET user_id = ${user_id}, content = "${content}", mood = ${mood}, created_at = "${created_at}"
+        SET user_id = ${user_id}, question = "${question}", content = "${content}", mood = ${mood}, created_at = "${created_at}"
         WHERE id = ${entryId}
       `;
       await db(sql);
