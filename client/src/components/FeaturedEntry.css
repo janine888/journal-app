@@ -1,0 +1,58 @@
+.FeaturedEntry {
+  margin: 20px 0;
+}
+
+.FeaturedEntryCard {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FeaturedEntryContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.FeaturedEntryLeftColumn {
+  flex-grow: 1;
+  padding-right: 20px;
+  text-align: left;
+}
+
+.FeaturedEntryRightColumn {
+  flex-basis: 40%;
+  text-align: center;
+}
+
+.FeaturedEntryImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.FeaturedEntryCardTitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.FeaturedEntryCardContent {
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.FeaturedReadMoreLink {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.FeaturedReadMoreLink:hover {
+  text-decoration: underline;
+}

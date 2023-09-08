@@ -1,39 +1,55 @@
+.EntryList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 50px;
+}
+
 .EntryCard {
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  background-color: #EDE4E0;
+  border: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  margin: 1rem;
-  background-color: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  width: 390px;
+  position: relative;
 }
 
 .EntryCardTitle {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .EntryCardContent {
   font-size: 1rem;
   color: #333;
+  line-height: 1.5;
 }
 
 .ReadMore {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: 1rem;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
 }
 
 .ReadMoreLink {
   text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
+  color: #9F8772;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.ReadMoreLink:hover {
+  text-decoration: none;
 }
 
 .ReadMoreLink::after {
   content: '►';
   margin-left: 0.25rem;
+}
+
+.AllEntries h4 {
+  text-align: right;
 }
