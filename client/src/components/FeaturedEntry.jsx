@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./FeaturedEntry.css";
 
 function FeaturedEntry({ entries }) {
@@ -13,25 +14,22 @@ function FeaturedEntry({ entries }) {
   // Get the first/newest entry in the list
   const featuredEntry = entries[0];
 
-  const handleClick = (entryId) => {
-    if (expandedCards.includes(entryId)) {
-      setExpandedCards(expandedCards.filter((id) => id !== entryId));
-    } else {
-      setExpandedCards([...expandedCards, entryId]);
-    }
-  };
-
   return (
     <div className="FeaturedEntry">
       {featuredEntry && (
         <div className="FeaturedEntryCard" key={featuredEntry.id}>
           <div className="FeaturedEntryContent">
             <div className="FeaturedEntryLeftColumn">
+              <h5>{featuredEntry.formattedDate}</h5>
               <h2 className="FeaturedEntryCardTitle">{featuredEntry.question}</h2>
-              <h4>{featuredEntry.formattedDate}</h4>
               <p className="FeaturedEntryCardContent">
-                {truncateText(featuredEntry.content, 150)}
+                {truncateText(featuredEntry.content, 400)}
               </p>
+                <div className="FeaturedReadMore">
+                  <Link to={`/entry/${featuredEntry.id}`} className="FeaturedReadMoreLink">
+                    Read More
+                  </Link>
+                </div>
             </div>
             <div className="FeaturedEntryRightColumn">
               <img
@@ -40,14 +38,6 @@ function FeaturedEntry({ entries }) {
                 alt="People Working"
               />
             </div>
-          </div>
-          <div className="FeaturedReadMore">
-            <a
-              // navigate("/individual-entry");
-              className="FeaturedReadMoreLink"
-            >
-              Read More
-            </a>
           </div>
         </div>
       )}

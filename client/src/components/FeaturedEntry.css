@@ -4,10 +4,7 @@
 
 .FeaturedEntryCard {
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,21 +15,28 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
+  color: #333;
 }
 
 .FeaturedEntryLeftColumn {
-  flex-grow: 1;
-  padding-right: 20px;
+  flex: 1;
+  padding: 60px;
   text-align: left;
+  margin-right: 50px;
+  margin-left: 50px;
+  background-color: #EDE4E0;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .FeaturedEntryRightColumn {
-  flex-basis: 40%;
+  flex: 1;
   text-align: center;
+  margin-right: 50px;
 }
 
 .FeaturedEntryImage {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 5px;
 }
@@ -45,14 +49,27 @@
 .FeaturedEntryCardContent {
   font-size: 16px;
   margin-right: 20px;
+  line-height: 1.5;
+  padding: 10px;
+}
+
+.FeaturedReadMore {
+  margin-bottom: 20px;
 }
 
 .FeaturedReadMoreLink {
   text-decoration: none;
-  color: #007BFF;
-  font-weight: bold;
+  color: #9F8772;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 .FeaturedReadMoreLink:hover {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+.FeaturedReadMoreLink::after {
+  content: '►';
+  margin-left: 0.25rem;
 }

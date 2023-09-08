@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./EntryList.css";
 
 function EntryList({ entries }) {
-  const [expandedCards, setExpandedCards] = useState([]);
-
   function truncateText(text, maxLength) {
     if (text.length <= maxLength) {
       return text;
@@ -12,32 +11,19 @@ function EntryList({ entries }) {
     return truncatedText;
   }
 
-  const handleClick = (entryId) => {
-    if (expandedCards.includes(entryId)) {
-      setExpandedCards(expandedCards.filter((id) => id !== entryId));
-    } else {
-      setExpandedCards([...expandedCards, entryId]);
-    }
-  };
-
   return (
     <div className="EntryList">
       {entries.slice(1).map((entry) => (
         <div className="EntryCard" key={entry.id}>
+          <h5>{entry.formattedDate}</h5>
           <h2 className="EntryCardTitle">{entry.question}</h2>
-          <h4>{entry.formattedDate}</h4>
           <p className="EntryCardContent">
-            {expandedCards.includes(entry.id)
-              ? entry.content
-              : truncateText(entry.content, 150)}
+            {truncateText(entry.content, 150)}
           </p>
           <div className="ReadMore">
-            <button
-              onClick={() => handleClick(entry.id)}
-              className="ReadMoreLink"
-            >
-              {expandedCards.includes(entry.id) ? "Read Less" : "Read More"}
-            </button>
+            <Link to={`/entry/${entry.id}`} className="ReadMoreLink">
+              Read More
+            </Link>
           </div>
         </div>
       ))}

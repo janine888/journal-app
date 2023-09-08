@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 
-const Footer = () => {
+function Footer() {
   return (
     <footer className="Footer">
       Made with <span role="img" aria-label="Heart">❤️</span> in Bilbao
