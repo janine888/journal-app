@@ -1,0 +1,17 @@
+.IndividualEntry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  margin: 100px auto;
+}
+
+.IndividualEntry h5 {
+  margin-left: auto;
+  padding: 0 80px 0 0;
+}
+
+.IndividualEntry p {
+  line-height: 1.5;
+  padding: 0 70px 0 70px;
+}

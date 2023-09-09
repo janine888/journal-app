@@ -1,25 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./IndividualEntry.css";
 
 function IndividualEntry() {
   const { id } = useParams();
-  console.log(id);
   // Convert the string id to a number
   const numericId = Number(id);
 
-  const [individualEntry, setIndividualEntry] = useState(null);
+  const [individualEntry, setIndividualEntry] = useState({
+    id: null,
+    user_id: null,
+    question: "",
+    content: "",
+    created_at: ""
+  });
 
   // GET one entry
   useEffect(() => {
-    console.log("ID:", typeof numericId);
     const getIndividualEntry = async () => {
       try {
-        console.log(`Fetching entry with ID: ${typeof numericId}, ${numericId}`);
         let response = await fetch(`/api/entries/${numericId}`);
         if (response.ok) {
-          console.log(`Successful response for entry with ID: ${numericId}`);
           let entry = await response.json();
-          setIndividualEntry(entry);
+          setIndividualEntry(entry[0]);
         } else {
           console.log(`Server error: ${response.status} ${response.statusText}`);
         }
@@ -35,12 +38,20 @@ function IndividualEntry() {
     return <div>Loading ...</div>;
   }
 
+  // Function to format the date
+  function formatDate(dateString) {
+    let options = { year: "numeric", month: "long", day: "numeric" };
+    let date = new Date(dateString);
+    let formattedDate = date.toLocaleDateString("en-US", options);
+    return formattedDate;
+  }
+
   return (
     <div className="IndividualEntry">
       {individualEntry && (
         <>
-          <h2>{individualEntry.formattedDate}</h2>
-          <p>{individualEntry.question}</p>
+          <h5>{formatDate(individualEntry.created_at)}</h5>
+          <h2>{individualEntry.question}</h2>
           <p>{individualEntry.content}</p>
         </>
       )}
