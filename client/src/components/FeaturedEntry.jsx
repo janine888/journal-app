@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./FeaturedEntry.css";
+import ClearIcon from "@mui/icons-material/Clear";
 
-function FeaturedEntry({ entries }) {
+function FeaturedEntry({ entries, deleteEntry }) {
   function truncateText(text, maxLength) {
     if (text.length <= maxLength) {
       return text;
@@ -14,12 +15,24 @@ function FeaturedEntry({ entries }) {
   // Get the first/newest entry in the list
   const featuredEntry = entries[0];
 
+  // Handle delete button click
+  const handleClick = () => {
+    if (featuredEntry) {
+      deleteEntry(featuredEntry.id);
+    }
+  };
+
   return (
     <div className="FeaturedEntry">
       {featuredEntry && (
         <div className="FeaturedEntryCard" key={featuredEntry.id}>
           <div className="FeaturedEntryContent">
             <div className="FeaturedEntryLeftColumn">
+              <div className="FeaturedDeleteButton">
+                <button onClick={handleClick} >
+                  <ClearIcon />
+                </button>
+              </div>
               <h5>{featuredEntry.formattedDate}</h5>
               <h2 className="FeaturedEntryCardTitle">{featuredEntry.question}</h2>
               <p className="FeaturedEntryCardContent">

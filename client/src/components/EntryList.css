@@ -4,7 +4,7 @@
   gap: 30px;
   margin-left: 70px;
   margin-right: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 }
 
 .EntryCard {
@@ -44,6 +44,7 @@
 
 .ReadMoreLink:hover {
   text-decoration: none;
+  color: #FF5733;
 }
 
 .ReadMoreLink::after {
@@ -53,4 +54,21 @@
 
 .AllEntries h5 {
   text-align: right;
+}
+
+.DeleteButton {
+  text-align: left;
+  margin-top: 10px;
+}
+
+button {
+  text-decoration: none;
+  color: #9F8772;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+button:hover {
+  color: #FF5733;
 }

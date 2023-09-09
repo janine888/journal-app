@@ -1,5 +1,5 @@
 .FeaturedEntry {
-  margin: 20px 0;
+  margin: 70px 0;
 }
 
 .FeaturedEntryCard {
@@ -68,9 +68,28 @@
 
 .FeaturedReadMoreLink:hover {
   text-decoration: none;
+  color: #FF5733;
 }
 
 .FeaturedReadMoreLink::after {
   content: '►';
   margin-left: 0.25rem;
+}
+
+.FeaturedDeleteButton {
+  text-align: left;
+  margin-top: -40px;
+  margin-left: -40px;
+}
+
+button {
+  text-decoration: none;
+  color: #9F8772;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+button:hover {
+  color: #FF5733;
 }

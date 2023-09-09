@@ -92,7 +92,6 @@ function App() {
           navigate("/error-message");
       } else {
         console.log(`Server error: ${response.status} ${response.statusText}`);
-        // navigate("/error");
       }
     } catch (err) {
       console.log(`Network error: ${err.message}`);
@@ -106,7 +105,21 @@ function App() {
 
   // DELETE an entry
   const deleteEntry = async (id) => {
+    let options = {
+      method: "DELETE"
+    };
 
+    try {
+      let response = await fetch(`/api/entries/${id}`, options);
+      if (response.ok) {
+        let entries = await response.json();
+        setEntries(entries);
+      } else {
+        console.log(`Server error: ${response.status} ${response.statusText}`);
+      }
+    } catch (err) {
+      console.log(`Network error: ${err.message}`);
+    }
   }
 
   return (
@@ -115,10 +128,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<AllEntries entries={entries} />} />
-          <Route path="/all-entries" element={<AllEntries entries={entries} />} />
+          <Route path="/all-entries" element={<AllEntries entries={entries} deleteEntryCb={deleteEntry} />} />
           <Route path="/entry/:id" element={<IndividualEntry />} />
           <Route path="/add-entry" element={<AddEntry addEntryCb={(question, content, mood) => addEntry(question, content, mood)} />} />
-          <Route path="/mood-tracker" element={<MoodTracker />} />
+          <Route path="/mood-tracker" element={<MoodTracker entries={entries} />} />
           <Route path="/error-message" element={<ErrorMessage />} />
         </Routes>
         <Footer />

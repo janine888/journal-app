@@ -6,8 +6,8 @@ function AllEntries(props) {
   return (
     <div className="AllEntries">
       <h1>All Entries</h1>
-      <FeaturedEntry entries={props.entries} />
-      <EntryList entries={props.entries} />
+      <FeaturedEntry entries={props.entries} deleteEntry={props.deleteEntryCb} />
+      <EntryList entries={props.entries} deleteEntry={props.deleteEntryCb} />
     </div>
   );
 };
