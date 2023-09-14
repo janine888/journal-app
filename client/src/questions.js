@@ -13,7 +13,7 @@ const questions = [
     { id: 12, question: "When was the last time you said, 'thank you' to a coworker?" },
     { id: 13, question: "When was the last time you asked for feedback on your work?" },
     { id: 14, question: "What does success at work look like for you?" },
-    { id: 15, question: "In X years, what would you like to be doing for work?" },
+    { id: 15, question: "In x years, what would you like to be doing for work?" },
     { id: 16, question: "How can you make your life better today?" },
     { id: 17, question: "What brings you energy?" },
     { id: 18, question: "What drains you right now?" },

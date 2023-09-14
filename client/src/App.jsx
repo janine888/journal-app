@@ -98,11 +98,6 @@ function App() {
     }
   };
 
-  // UPDATE an entry
-  const updateEntry = async (id) => {
-
-  }
-
   // DELETE an entry
   const deleteEntry = async (id) => {
     let options = {
@@ -113,7 +108,14 @@ function App() {
       let response = await fetch(`/api/entries/${id}`, options);
       if (response.ok) {
         let entries = await response.json();
-        setEntries(entries);
+
+        // Format the entries
+        let formattedEntries = entries.map(entry => ({
+          ...entry,
+          formattedDate: formatDate(entry.created_at),
+        }));
+
+        setEntries(formattedEntries);
       } else {
         console.log(`Server error: ${response.status} ${response.statusText}`);
       }
@@ -128,7 +130,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<AllEntries entries={entries} />} />
-          <Route path="/all-entries" element={<AllEntries entries={entries} deleteEntryCb={deleteEntry} />} />
+          <Route path="/all-entries" element={<AllEntries entries={entries} deleteEntryCb={deleteEntry} setEntries={setEntries} />} />
           <Route path="/entry/:id" element={<IndividualEntry />} />
           <Route path="/add-entry" element={<AddEntry addEntryCb={(question, content, mood) => addEntry(question, content, mood)} />} />
           <Route path="/mood-tracker" element={<MoodTracker entries={entries} />} />

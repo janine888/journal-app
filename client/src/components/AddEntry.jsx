@@ -81,7 +81,9 @@ function AddEntry(props) {
                     onChange={e => handleChange(e)}
                 />
 
-                <div className="mood-selection">
+                <p className="UserMessage">Please remember that you can only submit one entry per day.<br />If you would like to answer another question, just refresh the page!</p>
+
+                <div className="MoodSelection">
                     <h3>Today's Mood</h3>
                     {emojiOptions.map((emoji, index) => (
                         <button

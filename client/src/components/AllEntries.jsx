@@ -6,8 +6,8 @@ function AllEntries(props) {
   return (
     <div className="AllEntries">
       <h1>All Entries</h1>
-      <FeaturedEntry entries={props.entries} deleteEntry={props.deleteEntryCb} />
-      <EntryList entries={props.entries} deleteEntry={props.deleteEntryCb} />
+      <FeaturedEntry entries={props.entries} deleteEntry={props.deleteEntryCb} updateEntry={props.updateEntryCb} setEntries={props.setEntries} />
+      <EntryList entries={props.entries} deleteEntry={props.deleteEntryCb} setEntries={props.setEntries} />
     </div>
   );
 };

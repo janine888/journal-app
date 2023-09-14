@@ -1,0 +1,27 @@
+.EditView textarea {
+  font-family: "Montserrat", sans-serif;
+  height: auto;
+  width: 100%;
+  margin-top: 20px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  resize: none;
+}
+
+.SaveButton {
+  background-color: #665A48;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+  text-align: center;
+  color: #EDE4E0;
+}
+
+.SaveButton:hover {
+  background-color: #7F735F;
+  color: #FFF;
+}

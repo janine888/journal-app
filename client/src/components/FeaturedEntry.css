@@ -93,3 +93,12 @@ button {
 button:hover {
   color: #FF5733;
 }
+
+.FeaturedEditButton {
+  margin-left: -10px;
+  margin-top: -30px;
+}
+
+.FeaturedEntry h5 {
+  text-align: right;
+}
