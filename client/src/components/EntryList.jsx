@@ -8,16 +8,8 @@ import EditIcon from '@mui/icons-material/Edit';
 function EntryList({ entries, deleteEntry, setEntries }) {
   const [editMode, setEditMode] = useState(false);
 
-  // Define maximum text length for featured entry
+  // Define maximum text length for entry list
   let maxLength = 150;
-
-  // function truncateText(text, maxLength) {
-  //   if (text.length <= maxLength) {
-  //     return text;
-  //   }
-  //   const truncatedText = text.slice(0, maxLength) + "...";
-  //   return truncatedText;
-  // }
 
   // Handle delete button click
   const handleDelete = (entryId) => {
@@ -45,10 +37,15 @@ function EntryList({ entries, deleteEntry, setEntries }) {
           </div>
           <h5>{entry.formattedDate}</h5>
           <h2 className="EntryCardTitle">{entry.question}</h2>
-          <EditView id={entry.id} content={entry.content} editMode={editMode} setEditMode={setEditMode} entries={entries} setEntries={setEntries} maxLength={maxLength} />
-          {/* <p className="EntryCardContent">
-            {truncateText(entry.content, 150)}
-          </p> */}
+          <EditView
+            id={entry.id}
+            content={entry.content}
+            editMode={editMode}
+            setEditMode={setEditMode}
+            entries={entries}
+            setEntries={setEntries}
+            maxLength={maxLength}
+          />
           <div className="ReadMore">
             <Link to={`/entry/${entry.id}`} className="ReadMoreLink">
               Read More

@@ -11,14 +11,6 @@ function FeaturedEntry({ entries, deleteEntry, setEntries }) {
   // Define maximum text length for featured entry
   let maxLength = 400;
 
-  // function truncateText(text, maxLength) {
-  //   if (text.length <= maxLength) {
-  //     return text;
-  //   }
-  //   const truncatedText = text.slice(0, maxLength) + "...";
-  //   return truncatedText;
-  // }
-
   // Get the first/newest entry in the list
   const featuredEntry = entries[0];
 
@@ -52,14 +44,15 @@ function FeaturedEntry({ entries, deleteEntry, setEntries }) {
               </div>
               <h5>{featuredEntry.formattedDate}</h5>
               <h2 className="FeaturedEntryCardTitle">{featuredEntry.question}</h2>
-              {/* {true ? (
-                <p className="FeaturedEntryCardContent">
-                  {truncateText(featuredEntry.content, 400)}
-                </p>
-              ) : (
-                <textarea>{featuredEntry.content}</textarea>
-              )} */}
-              <EditView id={featuredEntry.id} content={featuredEntry.content} editMode={editMode} setEditMode={setEditMode} entries={entries} setEntries={setEntries} maxLength={maxLength} />
+              <EditView
+                id={featuredEntry.id}
+                content={featuredEntry.content}
+                editMode={editMode}
+                setEditMode={setEditMode}
+                entries={entries}
+                setEntries={setEntries}
+                maxLength={maxLength}
+              />
               <div className="FeaturedReadMore">
                 <Link to={`/entry/${featuredEntry.id}`} className="FeaturedReadMoreLink">
                   Read More

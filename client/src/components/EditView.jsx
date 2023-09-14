@@ -26,11 +26,6 @@ function EditView({ id, content, maxLength, editMode, setEditMode, entries, setE
     return formattedDate;
   }
 
-  // Define maxLength depending on EntryList/FeaturedEntry (150/400)
-
-  // // Get the first/newest entry in the list
-  // const featuredEntry = entries[0];
-
   // UPDATE an entry
   const updateEntry = async () => {
     let options = {

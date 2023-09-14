@@ -48,24 +48,6 @@ function App() {
     }
   };
 
-  
-  // const getIndividualEntry = async (id) => {
-  //   try {
-  //     console.log(`Fetching entry with ID: ${id}`);
-  //     let response = await fetch(`/api/entries/${id}`);
-  //     if (response.ok) {
-  //       console.log(`Successful response for entry with ID: ${id}`);
-  //       let entry = await response.json();
-
-  //       setIndividualEntry(entry);
-  //     } else {
-  //       console.log(`Server error: ${response.status} ${response.statusText}`);
-  //     }
-  //   } catch (err) {
-  //     console.log(`Network error: ${err.message}`);
-  //   }
-  // }
-
   // POST new entry
   const addEntry = async (question, content, mood) => {
     let options = {
