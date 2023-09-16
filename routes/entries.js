@@ -72,16 +72,16 @@ router.post("/entries", async (req, res) => {
 });
 
 // UPDATE an entry
-router.put("/entries/:id", async (req, res) => {
+router.patch("/entries/:id", async (req, res) => {
   let entryId = Number(req.params.id);
 
   try {
     let result = await db(`SELECT * FROM entries WHERE id = ${entryId}`);
     if (result.data.length === 1) {
-      let { user_id, question, content, mood, created_at } = req.body;
+      let { content } = req.body;
       let sql = `
         UPDATE entries
-        SET user_id = ${user_id}, question = "${question}", content = "${content}", mood = ${mood}, created_at = "${created_at}"
+        SET content = "${content}"
         WHERE id = ${entryId}
       `;
       await db(sql);
@@ -94,7 +94,6 @@ router.put("/entries/:id", async (req, res) => {
     res.status(500).send({ error: err.message });
   }
 });
-
 
 // DELETE an entry
 router.delete("/entries/:id", async (req, res) => {

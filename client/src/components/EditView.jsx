@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./EditView.css";
 
-function EditView({ id, content, maxLength, editMode, setEditMode, entries, setEntries }) {
+function EditView({ id, content, maxLength, editMode, setEditMode, setEntries }) {
   const [editedContent, setEditedContent] = useState(content);
 
   useEffect(() => {
