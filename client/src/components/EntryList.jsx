@@ -10,7 +10,7 @@ function EntryList({ entries, deleteEntry, setEntries }) {
   return (
     <div className="EntryList">
       {entries.slice(1).map((entry) => (
-        <SingleEntry entry={entry} setEntries={setEntries} />
+        <SingleEntry entry={entry} setEntries={setEntries} deleteEntry={deleteEntry} />
       ))}
     </div>
   );

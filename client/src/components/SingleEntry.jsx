@@ -5,7 +5,7 @@ import "./EntryList.css";
 import ClearIcon from "@mui/icons-material/Clear";
 import EditIcon from '@mui/icons-material/Edit';
 
-export default function SingleEntry({ entry, setEntries }) {
+export default function SingleEntry({ entry, setEntries, deleteEntry }) {
   const [editMode, setEditMode] = useState(false);
 
   // Define maximum text length for entry list

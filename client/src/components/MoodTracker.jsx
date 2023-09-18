@@ -27,7 +27,7 @@ function MoodTracker({ entries }) {
     return acc;
   }, {});
 
-  // Create data for the chart
+  // Create data for the graph
   const moodData = Object.keys(groupedData).flatMap(formattedMonth => {
     const monthEntries = groupedData[formattedMonth];
     return monthEntries.map(entry => ({
@@ -51,7 +51,7 @@ function MoodTracker({ entries }) {
     <div className="MoodTracker">
       <h1>Mood Tracker</h1>
       <div className="Graph">
-        <LineChart width={800} height={500} data={moodData}>
+        <LineChart width={900} height={600} data={moodData}>
           <XAxis
             dataKey="date"
             tickFormatter={(value) => value.split(',')[0]}
