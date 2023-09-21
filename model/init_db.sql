@@ -40,7 +40,7 @@ FOREIGN KEY (user_id) REFERENCES users(id);
 --
 
 INSERT INTO users (username, email, password)
-VALUES ('chari', 'chari.schaefer@gmail.com', '1234');
+VALUES ('username', 'username@gmail.com', '1234');
 
 INSERT INTO entries (user_id, question, content, mood, created_at)
 VALUES (1,'What did you work on today?', 'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.', 3, '2023-08-29');
