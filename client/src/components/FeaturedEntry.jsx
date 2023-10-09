@@ -62,7 +62,7 @@ function FeaturedEntry({ entries, deleteEntry, setEntries }) {
             <div className="FeaturedEntryRightColumn">
               <img
                 className="FeaturedEntryImage"
-                src="public/writing.jpg"
+                src="/writing.jpg"
                 alt="People Working"
               />
             </div>

@@ -8,6 +8,7 @@ import IndividualEntry from "./components/IndividualEntry.jsx";
 import AddEntry from "./components/AddEntry.jsx";
 import MoodTracker from "./components/MoodTracker.jsx";
 import ErrorMessage from "./components/ErrorMessage.jsx";
+import Login from "./components/Login.jsx";
 
 function App() {
   const navigate = useNavigate();
@@ -117,6 +118,7 @@ function App() {
           <Route path="/add-entry" element={<AddEntry addEntryCb={(question, content, mood) => addEntry(question, content, mood)} />} />
           <Route path="/mood-tracker" element={<MoodTracker entries={entries} />} />
           <Route path="/error-message" element={<ErrorMessage />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </div>

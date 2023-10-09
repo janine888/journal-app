@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 db = require("../model/helper.js");
 
+
 // GET home page
 router.get("/", (req, res) => {
   res.status(201).send("Welcome to the Journal App!");

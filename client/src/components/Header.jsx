@@ -15,6 +15,7 @@ function Header() {
           <li className="nav-item"><Link to="/all-entries">All Entries</Link></li>
           <li className="nav-item"><Link to="/add-entry">Add Entry</Link></li>
           <li className="nav-item"><Link to="/mood-tracker">Mood Tracker</Link></li>
+          <li className="nav-item"><Link to="/login">Login</Link></li>
         </ul>
       </nav>
     </header>
